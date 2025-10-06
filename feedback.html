@@ -1,368 +1,325 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feedback - SZA Fan Website</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts: Caveat Brush -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <style>
-    :root{
-      --teal:#1abc9c;
-      --dark:#2c3e50;
-      --muted:#b2dfdb;
-      --glass: rgba(255,255,255,0.85);
-      --card-bg: rgba(26,188,156,0.06);
-      --radius:24px;
-      --max-width:900px;
-      --container-width:720px;
-      --gap:1rem;
-      --shadow-1: 0 4px 24px rgba(44,62,80,0.08);
+    :root {
+      --primary-color: #1abc9c;
+      --secondary-color: #2c3e50;
+      --bg-color: #f8fafc;
+      --text-dark: #2c3e50;
+      --text-light: #ffffff;
     }
 
-    /* Reset & base */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: 'Caveat Brush', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(135deg,#f8fafc 0%,#e0f7fa 100%);
-      color:var(--dark);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.35;
-      padding:24px;
-      display:flex;
-      justify-content:center;
+    * {
+      box-sizing: border-box;
     }
 
-    /* Page wrapper */
-    .page{
-      width:100%;
-      max-width:var(--max-width);
+    body {
+      margin: 0;
+      font-family: 'Caveat Brush', cursive;
+      background: linear-gradient(135deg, var(--bg-color), #e0f7fa);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    /* Top bar */
-    .hero-top-bar{
-      position:sticky;
-      top:0;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      padding:0.75rem 1rem;
-      background: linear-gradient(to bottom, rgba(44,62,80,0.75) 80%, rgba(44,62,80,0) 100%);
-      z-index:50;
-      border-radius:16px;
-      margin-bottom:18px;
-      box-shadow:0 6px 18px rgba(44,62,80,0.08);
-    }
-    .logo-link{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none}
-    .logo-img-large{height:44px;width:auto;display:block}
-
-    nav.inline-nav ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    nav.inline-nav a{
-      color:#fff;
-      text-decoration:none;
-      padding:6px 10px;
-      border-radius:8px;
-      font-weight:600;
-      font-size:0.95rem;
-      background:transparent;
-      transition:background .18s, transform .12s;
-    }
-    nav.inline-nav a.active,
-    nav.inline-nav a:focus,
-    nav.inline-nav a:hover{
-      background:rgba(255,255,255,0.08);
-      transform:translateY(-2px);
-      outline:2px solid rgba(255,255,255,0.06);
+    header {
+      background: linear-gradient(to bottom, rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0));
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(44, 62, 80, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* Hero */
-    .hero{
-      border-radius:20px;
-      padding:28px 20px;
-      color:#fff;
-      margin-bottom:20px;
-      background:linear-gradient(120deg, rgba(26,188,156,0.18), rgba(44,62,80,0.12));
-      box-shadow: var(--shadow-1);
-      text-align:center;
-    }
-    .hero h1{
-      margin:6px 0 4px;
-      font-size:2.2rem;
-      color: #ffffff;
-      text-shadow: 0 2px 8px rgba(44,62,80,0.12);
-    }
-    .hero p{margin:0;font-size:1.05rem;color:rgba(255,255,255,0.95)}
-
-    /* Section / card */
-    .section{
-      margin:28px auto;
-      padding:32px;
-      border-radius:var(--radius);
-      background: linear-gradient(120deg, rgba(26,188,156,0.04), rgba(44,62,80,0.04));
-      box-shadow:var(--shadow-1);
-      position:relative;
+    .logo-img-large {
+      height: 48px;
     }
 
-    .container{
-      max-width:var(--container-width);
-      margin-inline:auto;
-      padding:0 16px;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
     }
 
-    h2{
-      text-align:center;
-      color:var(--dark);
-      margin:0 0 18px;
-      font-size:1.9rem;
-      letter-spacing:0.4px;
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 1.3rem;
     }
 
-    /* Form */
-    .contact-form{
-      background:var(--glass);
-      border-radius:16px;
-      padding:24px;
-      box-shadow:0 6px 18px rgba(26,188,156,0.06);
-      backdrop-filter: blur(6px);
-      margin-top:12px;
+    nav ul li a.active {
+      font-weight: bold;
+      border-bottom: 2px solid var(--primary-color);
     }
 
-    .form-row{display:flex;flex-wrap:wrap;gap:var(--gap)}
-    .form-group{flex:1 1 100%; min-width:160px;margin-bottom:20px}
-    label{
-      display:block;
-      font-weight:700;
-      color:var(--teal);
-      margin-bottom:6px;
-      font-size:1rem;
-      letter-spacing:0.3px;
-    }
-    input[type="text"], input[type="email"], textarea, select{
-      width:100%;
-      padding:12px;
-      border-radius:10px;
-      border:1.5px solid var(--muted);
-      background: rgba(240,255,255,0.82);
-      font-size:1rem;
-      margin:0;
-      box-shadow:0 2px 8px rgba(44,62,80,0.05);
-      transition:border .18s, box-shadow .18s;
-      font-family:inherit;
-    }
-    textarea{resize:vertical;min-height:120px}
-    input:focus, textarea:focus, select:focus{
-      outline:3px solid rgba(26,188,156,0.14);
-      border-color:var(--teal);
-      box-shadow:0 6px 20px rgba(26,188,156,0.08);
+    .hero-text {
+      text-align: center;
+      padding: 2rem;
     }
 
-    fieldset{
-      border:1px dashed rgba(44,62,80,0.06);
-      padding:12px 14px;
-      border-radius:10px;
-      margin:0 0 22px 0;
+    .hero-text h1 {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
     }
-    legend{font-weight:700;color:var(--dark);padding:0 6px}
 
-    .choices{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-      margin-top:8px;
-      margin-bottom:10px;
+    .hero-text p {
+      font-size: 1.5rem;
     }
-    .choices label{font-weight:600;color:var(--dark);display:inline-flex;align-items:center;gap:8px}
-    .choices input{transform:scale(1.02);margin-right:4px}
 
-    .hint{font-size:0.92rem;color:rgba(44,62,80,0.7);margin-top:-8px;margin-bottom:8px}
-
-    .btn{
-      display:inline-block;
-      background: linear-gradient(90deg,var(--teal) 0%, var(--dark) 100%);
-      color:#fff;
-      padding:12px 26px;
-      border-radius:28px;
-      border:none;
-      font-weight:800;
-      letter-spacing:0.6px;
-      cursor:pointer;
-      box-shadow:0 6px 18px rgba(44,62,80,0.12);
-      transition:transform .12s, box-shadow .12s;
-      text-decoration:none;
-      font-size:1rem;
+    .section {
+      background: rgba(255, 255, 255, 0.8);
+      max-width: 900px;
+      margin: 2rem auto;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.1);
+      padding: 2rem;
     }
-    .btn:hover,.btn:focus{transform:translateY(-3px);box-shadow:0 10px 26px rgba(44,62,80,0.16);outline: none}
-    .btn:active{transform:translateY(-1px)}
 
-    .form-footer{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px}
-    .privacy{font-size:0.9rem;color:rgba(44,62,80,0.7)}
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #388e3c;
+      margin-bottom: 1rem;
+    }
 
-    /* Footer */
-    footer.footer{margin-top:28px;text-align:center;color:rgba(44,62,80,0.7);font-size:0.95rem}
-    .footer .social-icons{display:flex;gap:12px;justify-content:center;margin-top:6px}
+    h3 {
+      text-align: center;
+      font-size: 1.6rem;
+      color: #444;
+      margin-bottom: 2rem;
+    }
 
-    /* Responsive */
-    @media (min-width:720px){
-      .form-row .form-group.half{flex:1 1 calc(50% - 12px)}
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      border: 1.5px solid #b2dfdb;
+      font-size: 1.2rem;
+      background: rgba(240, 255, 255, 0.7);
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+    }
+
+    input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    button {
+      padding: 0.75rem 2rem;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #1abc9c, #2c3e50);
+      color: white;
+      box-shadow: 0 2px 12px rgba(44, 62, 80, 0.1);
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #2c3e50, #1abc9c);
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.18);
+    }
+
+    button[type="reset"] {
+      background: transparent;
+      border: 2px solid #2c3e50;
+      color: #2c3e50;
+    }
+
+    button[type="reset"]:hover {
+      background: #2c3e50;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-text p {
+        font-size: 1.2rem;
+      }
+
+      button {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.5rem;
+      }
+
+      label, input, select, textarea {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <header class="hero-top-bar" role="banner">
-      <a class="logo-link" href="index.html">
-        <img src="images/sza_logo.png" alt="SZA logo" class="logo-img-large" />
-        <span style="color:#fff;font-weight:700;display:none">SZA Fan</span>
-      </a>
 
-      <nav class="inline-nav" aria-label="Main navigation">
-        <ul id="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="feedback.html" class="active" aria-current="page">Feedback</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- Header / Nav -->
+  <header>
+    <a href="index.html">
+      <img src="images/sza_logo.png" alt="SZA Logo" class="logo-img-large">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-      <section class="hero" aria-labelledby="page-title">
-        <h1 id="page-title">Feedback</h1>
-        <p>Share your thoughts about this fan project to help improve the site.</p>
-      </section>
+  <!-- Hero Text -->
+  <section class="hero-text">
+    <h1>Feedback</h1>
+    <p>Share your thoughts about this fan project</p>
+  </section>
 
-      <section class="section" aria-labelledby="send-feedback">
-        <div class="container">
-            <h2 id="send-feedback" style="font-family: 'Caveat Brush', cursive;">Send Feedback</h2>
+  <!-- Feedback Form -->
+  <section class="section">
+    <h2>Feedback Form</h2>
+    <h3>Your Feedback Goes Here</h3>
 
-          <form id="feedbackForm" class="contact-form" novalidate>
-            <div class="form-row">
-              <div class="form-group half">
-                <label for="name">Your Name <span aria-hidden="true">*</span></label>
-                <input type="text" id="name" name="name" autocomplete="name" required aria-required="true" placeholder="Enter your name">
-              </div>
+    <form onsubmit="handleSubmit(event)">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
 
-              <div class="form-group half">
-                <label for="email">Email Address <span aria-hidden="true">*</span></label>
-                <input type="email" id="email" name="email" autocomplete="email" required aria-required="true" placeholder="your.email@example.com">
-              </div>
-            </div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" placeholder="Enter your address" required>
 
-            <fieldset>
-              <legend>How did you hear about us? <span aria-hidden="true">*</span></legend>
-              <p class="hint">Select one option.</p>
-              <div class="choices" role="radiogroup" aria-required="true">
-                <label><input type="radio" name="source" value="Friend" required>Friend</label>
-                <label><input type="radio" name="source" value="Search Engine">Search Engine</label>
-                <label><input type="radio" name="source" value="Social Media">Social Media</label>
-                <label><input type="radio" name="source" value="Other">Other</label>
-              </div>
-            </fieldset>
+      <label for="email">Email ID:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-            <fieldset>
-              <legend>What do you like about the site? <span aria-hidden="true">*</span></legend>
-              <p class="hint">You may choose more than one.</p>
-              <div class="choices">
-                <label><input type="checkbox" name="likes[]" value="Design" required>Design</label>
-                <label><input type="checkbox" name="likes[]" value="Content">Content</label>
-                <label><input type="checkbox" name="likes[]" value="Usability">Usability</label>
-                <label><input type="checkbox" name="likes[]" value="Other">Other</label>
-              </div>
-            </fieldset>
+      <label>Gender:</label>
+      <div class="radio-group">
+  <label class="male"><input type="radio" name="gender" value="Male" required> Male</label>
+  <label class="female"><input type="radio" name="gender" value="Female"> Female</label>
+  <label class="others"><input type="radio" name="gender" value="Others"> Others</label>
+</div>
 
-            <div class="form-group">
-              <label for="message">Comments <span aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" rows="6" required aria-required="true" placeholder="Write your feedback..."></textarea>
-            </div>
+<style>
+  .radio-group label {
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .radio-group label.male {
+    color: #007bff; /* Bootstrap Blue */
+  }
+  .radio-group label.female {
+    color: #e91e63; /* Pink */
+  }
+  .radio-group label.others {
+    /* Rainbow gradient text */
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: 700;
+  }
+  /* Optional spacing */
+  .radio-group label + label {
+    margin-left: 1.5rem;
+  }
+</style>
 
-            <div class="form-footer">
-              <button type="submit" class="btn" id="submitBtn">Send Feedback</button>
-              <div class="privacy">We use feedback to improve the site.</div>
-            </div>
 
-            <div id="formStatus" role="status" aria-live="polite" style="margin-top:12px;display:none"></div>
-          </form>
-        </div>
-      </section>
-    </main>
+      <label for="rate">Rate My Page:</label>
+      <select id="rate" name="rate" required>
+  <option value="" disabled selected>Select rating</option>
+  <option value="Excellent">Excellent</option>
+  <option value="Good">Good</option>
+  <option value="Average">Average</option>
+  <option value="Poor">Poor</option>
+</select>
 
-    <footer class="footer" role="contentinfo">
-      <div>&copy; 2025 SZA Fan Website. All rights reserved.</div>
-      <div class="social-icons" aria-hidden="false">
-        <a href="https://instagram.com/sza" target="_blank" rel="noopener noreferrer" title="Instagram">
-          <img src="images/instalogo.png" alt="Instagram" style="width:28px;height:28px;object-fit:contain" />
-        </a>
-        <a href="https://facebook.com/sza" target="_blank" rel="noopener noreferrer" title="Facebook">
-          <img src="images/fblogo.png" alt="Facebook" style="width:28px;height:28px;object-fit:contain" />
-        </a>
-        <a href="https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP" target="_blank" rel="noopener noreferrer" title="Spotify">
-          <img src="images/spotifylogo.png" alt="Spotify" style="width:28px;height:28px;object-fit:contain" />
-        </a>
+<style>
+  select {
+    font-family: 'Caveat Brush', cursive;
+    font-size: x-large; /* or 1.5rem */
+  }
+</style>
+
+      <label for="feedback">Your Feedback:</label>
+      <textarea id="feedback" name="feedback" rows="5" placeholder="Write your feedback here..."></textarea>
+
+      <div class="button-group">
+        <button type="submit" style="font-family: 'Caveat Brush', cursive; font-size: large;">Submit</button>
+        <button type="reset" style="font-family: 'Caveat Brush', cursive; font-size: large;">Clear</button>
       </div>
-    </footer>
-  </div>
+    </form>
+  </section>
 
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 SZA Fan Website. All rights reserved.</p>
+  </footer>
+
+  <!-- Optional JS -->
   <script>
-    // Progressive enhancement: client-side handling for a nicer UX.
-    (function () {
-      const form = document.getElementById('feedbackForm');
-      const status = document.getElementById('formStatus');
-      const submitBtn = document.getElementById('submitBtn');
-
-      function showStatus(message, ok = true) {
-        status.style.display = 'block';
-        status.textContent = message;
-        status.style.color = ok ? 'green' : 'crimson';
-      }
-
-      // Ensure at least one checkbox is selected when required (HTML required on first checkbox only is not robust).
-      function validateCheckboxGroup() {
-        const checks = form.querySelectorAll('input[type="checkbox"][name="likes[]"]');
-        return Array.from(checks).some(c => c.checked);
-      }
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        status.style.display = 'none';
-
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-
-        if (!validateCheckboxGroup()) {
-          showStatus('Please select at least one option for "What do you like about the site?".', false);
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-
-        // Replace the following with server submission endpoint if available.
-        // Here we simulate successful submission for progressive enhancement.
-        setTimeout(() => {
-          showStatus('Thank you — your feedback has been received.', true);
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Feedback';
-          form.reset();
-        }, 650);
-      });
-    })();
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Thank you for your feedback!");
+      e.target.reset();
+    }
   </script>
 </body>
 </html>
