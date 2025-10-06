@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - SZA Fan Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+  <style>
+    /* Justify-align text globally */
+    body, h1, h2, h3, h4, h5, h6, p, a, li, .btn, .about-text-card, .about-image-caption, .carousel-card {
+      text-align: justify;
+      font-family: 'Caveat Brush', cursive;
+    }
+    .hero-top-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(44,62,80,0.7) 80%, rgba(44,62,80,0.0));
+      box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+    }
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0f7fa 100%);
+      min-height: 100vh;
+    }
+    .section {
+      background: linear-gradient(120deg, rgba(26,188,156,0.08) 0%, rgba(44,62,80,0.08) 100%), url('images/sza_logo.png') no-repeat right bottom;
+      background-size: 120px;
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(44,62,80,0.10);
+      margin: 48px auto;
+      padding: 48px 0 32px 0;
+      max-width: 900px;
+      position: relative;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 0 24px;
+    }
+    .contact-info {
+      margin-bottom: 32px;
+    }
+    .contact-info h2 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .contact-info h2:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(90deg, #1abc9c 0%, #2c3e50 100%);
+    }
+    .contact-info p {
+      color: #34495e;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .contact-form {
+      background: rgba(255,255,255,0.85);
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(26,188,156,0.10);
+      padding: 32px 28px 24px 28px;
+      backdrop-filter: blur(6px);
+      position: relative;
+    }
+    .contact-form label {
+      font-weight: 600;
+      color: #1abc9c;
+      margin-bottom: 6px;
+      display: block;
+      letter-spacing: 0.5px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1.5px solid #b2dfdb;
+      background: rgba(240,255,255,0.7);
+      font-size: 1rem;
+      margin-top: 4px;
+      margin-bottom: 18px;
+      transition: border 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border: 1.5px solid #1abc9c;
+      box-shadow: 0 4px 16px rgba(26,188,156,0.12);
+      outline: none;
+    }
+    .contact-form button[type="submit"] {
+      background: linear-gradient(90deg, #1abc9c 0%, #2c3e50 100%);
+      color: #fff;
+      padding: 12px 32px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+      transition: background 0.3s, box-shadow 0.3s;
+      margin-top: 12px;
+      letter-spacing: 0.5px;
+    }
+    .contact-form button[type="submit"]:hover,
+    .contact-form button[type="submit"]:focus {
+      background: linear-gradient(90deg, #2c3e50 0%, #1abc9c 100%);
+      box-shadow: 0 4px 16px rgba(44,62,80,0.18);
+    }
+    h2 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(44,62,80,0.08);
+    }
+    h3 {
+      color: #1abc9c;
+      margin-top: 32px;
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .hero-text h1 {
+      color: #1abc9c;
+      text-shadow: 0 2px 8px rgba(44,62,80,0.10);
+    }
+    .hero-text p {
+      color: #2c3e50;
+      font-size: 1.2rem;
+      margin-top: 8px;
+      margin-bottom: 0;
+      text-shadow: 0 2px 8px rgba(44,62,80,0.08);
+    }
+    .section p {
+      color: #2c3e50;
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 2px 8px rgba(44,62,80,0.12));
+      transition: transform 0.2s;
+    }
+    .social-icons a:hover img, .social-icons a:focus img {
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section with Blended Navigation & Logo (Top of Page) -->
+  <header class="hero blended-hero">
+    <div class="hero-top-bar">
+      <a href="index.html" class="logo-link">
+        <img src="images/sza_logo.png" alt="SZA Logo" class="logo-img-large" />
+      </a>
+      <nav class="inline-nav hero-nav">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-social-icons" style="display:flex;gap:16px;align-items:center;margin-left:24px;">
+        <a href="https://instagram.com/sza" target="_blank" title="Instagram" rel="noopener">
+          <img src="images/instalogo.png" alt="Instagram" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+        </a>
+        <a href="https://facebook.com/sza" target="_blank" title="Facebook" rel="noopener">
+          <img src="images/fblogo.png" alt="Facebook" style="width:30px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+        </a>
+        <a href="https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP" target="_blank" title="Spotify" rel="noopener">
+          <img src="images/spotifylogo.png" alt="Spotify" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+        </a>
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1 style="color: #fff; text-align: center;">Contact Me</h1>
+      <p style="color: #fff; text-align: center;">Get in touch for questions or suggestions</p>
+    </div>
+  </header>
+
+  <!-- Contact Info & Form -->
+  <section class="section alt-bg">
+    <div class="container">
+      <h1 style="text-align: center;">Contact Us — The Excelsior School</h1>
+      <div class="contact-info" style="margin-bottom:32px; font-family: 'Caveat Brush', cursive;">
+        <h2 style="font-family: 'Caveat Brush', cursive;">School Address</h2>
+        <p style="font-family: 'Caveat Brush', cursive;">The Excelsior School<br>Swoyambhu, Kathmandu, Nepal<br><a href="https://excelsior.edu.np" target="_blank" style="font-family: 'Caveat Brush', cursive;">excelsior.edu.np</a></p>
+        <p style="font-family: 'Caveat Brush', cursive;"><strong style="font-family: 'Caveat Brush', cursive;">Phone:</strong> +977‑1‑4271693, +977‑1‑4301917, <br><strong style="font-family: 'Caveat Brush', cursive;">Fax/Alternate:</strong style="font-family: 'Caveat Brush', cursive;"> +977‑1‑4672295</p>
+        <p style="font-family: 'Caveat Brush', cursive;"><strong style="font-family: 'Caveat Brush', cursive;">Mobile (Parents Relation):</strong> 9851274246<br><strong style="font-family: 'Caveat Brush', cursive;">Mobile (HR):</strong> 9851274252</p>
+        <p style="font-family: 'Caveat Brush', cursive;"><strong style="font-family: 'Caveat Brush', cursive;">Email:</strong> <a href="mailto:info@excelsior.edu.np" style="font-family: 'Caveat Brush', cursive;">info@excelsior.edu.np</a><br><small style="font-family: 'Caveat Brush', cursive;">Alternate: the.excelsior.school@gmail.com</small></p>
+        <p style="font-family: 'Caveat Brush', cursive;"><strong style="font-family: 'Caveat Brush', cursive;">Office Hours:</strong> Mon - Fri, 8:00 AM - 4:00 PM</p>
+      </div>
+      <h3 style="margin-top:30px;">Send a Message</h3>
+      <form class="contact-form" action="submit_form.php" method="post">
+        <div class="form-group">
+          <label for="name" style="font-family: 'Caveat Brush', cursive; font-size: x-large;">Your Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email" style="font-family: 'Caveat Brush', cursive; font-size: x-large;">Your Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject" style="font-family: 'Caveat Brush', cursive; font-size: x-large;">Subject:</label>
+          <input type="text" id="subject" name="subject">
+        </div>
+        <div class="form-group">
+          <label for="message" style="font-family: 'Caveat Brush', cursive; font-size: x-large;">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" style="font-family: 'Caveat Brush', cursive; font-size: x-large;">Send Message</button>
+      </form>
+      <div style="margin:32px 0;">
+        <iframe
+          width="100%"
+          height="300"
+          style="border:0"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.128977964371!2d85.2828664!3d27.7173496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1891b5966fdd%3A0xe88b145281cba90!2sThe%20Excelsior%20School!5e0!3m2!1sen!2snp!4v1696638200000!5m2!1sen!2snp">
+        </iframe>
+      </div>
+      <div class="school-links" style="margin-bottom:24px;">
+        <a href="https://excelsior.edu.np" target="_blank">School Homepage</a> |
+        <a href="https://excelsior.edu.np/admission" target="_blank">Admission Page</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 SZA Fan Website | Created for educational purposes</p>
+    </div>
+  </footer>
+
+  <!-- Hamburger Menu JS -->
+  <script>
+const toggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+if (toggle && menu) {
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+}
+  </script>
+
+</body>
+</html>

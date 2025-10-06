@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SZA Fan Website - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+  <style>
+    /* Justify-align text globally */
+    body, h1, h2, h3, h4, h5, h6, p, a, li, .btn, .about-text-card, .about-image-caption, .carousel-card {
+      text-align: justify;
+      font-family: 'Caveat Brush', cursive;
+    }
+    /* ...existing styles... */
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 2px 8px rgba(44,62,80,0.12));
+      transition: transform 0.2s;
+    }
+    .social-icons a:hover img, .social-icons a:focus img {
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section with Blended Navigation & Logo -->
+  <header class="hero blended-hero">
+    <div class="hero-top-bar">
+      <a href="index.html" class="logo-link">
+        <img src="images/sza_logo.png" alt="SZA Logo" class="logo-img-large" />
+      </a>
+      <nav class="inline-nav hero-nav">
+        <ul id="menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-social-icons" style="display:flex;gap:16px;align-items:center;margin-left:24px;">
+        <a href="https://instagram.com/sza" target="_blank" title="Instagram" rel="noopener">
+          <img src="images/instalogo.png" alt="Instagram" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+        </a>
+        <a href="https://facebook.com/sza" target="_blank" title="Facebook" rel="noopener">
+          <img src="images/fblogo.png" alt="Facebook" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+        </a>
+        <a href="https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP" target="_blank" title="Spotify" rel="noopener">
+          <img src="images/spotifylogo.png" alt="Spotify" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+        </a>
+      </div>
+    </div>
+    <div class="hero-text" style="text-align:center;">
+      <h1 style="text-align:center;">Welcome to SZA Fan Site</h1>
+      <p style="text-align:center;">A school project dedicated to my favorite artist, SZA</p>
+      <a href="about.html" class="btn btn-hero">Discover More</a>
+    </div>
+  </header>
+
+  <!-- Recent Updates Section -->
+  <section class="section alt-bg" id="updates">
+    <div class="container">
+      <h2>Recent Updates</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
+        <div class="carousel-track" style="display: flex; transition: transform 0.5s; will-change: transform;">
+          <div class="card carousel-card new-update" data-category="Album" data-date="2025-09-30">
+            <img src="images/lana_album_cover.jpeg" alt="Lana Album Cover" loading="lazy">
+            <span class="badge">New</span>
+            <h3>New Album Review</h3>
+            <p>Check out our coverage of SZA's latest album and her hit singles.<br><small>Sep 30, 2025</small></p>
+            <a href="gallery.html" class="btn btn-card">Read More</a>
+          </div>
+          <div class="card carousel-card" data-category="Awards" data-date="2025-09-15">
+            <img src="images/sza_grammy.jpg" alt="SZA Grammy" loading="lazy">
+            <h3>Award Highlights</h3>
+            <p>Discover the latest awards and achievements of SZA in 2025.<br><small>Sep 15, 2025</small></p>
+            <a href="about.html" class="btn btn-card">Read More</a>
+          </div>
+          <div class="card carousel-card" data-category="Events" data-date="2025-08-28">
+            <img src="images/sza_fan_moment.jpg" alt="SZA Fan Event" loading="lazy">
+            <h3>Fan Events</h3>
+            <p>Explore recent fan meetups, concerts, and virtual events celebrating SZA.<br><small>Aug 28, 2025</small></p>
+            <a href="feedback.html" class="btn btn-card">Read More</a>
+          </div>
+          <div class="card carousel-card" data-category="Interview" data-date="2025-08-10">
+            <img src="images/sza_interview.jpg" alt="SZA Interview" loading="lazy">
+            <h3>Exclusive Interview</h3>
+            <p>SZA shares insights on her creative process and future plans.<br><small>Aug 10, 2025</small></p>
+            <a href="about.html" class="btn btn-card">Read More</a>
+          </div>
+          <div class="card carousel-card new-update" data-category="Collaboration" data-date="2025-07-25">
+            <img src="images/sza_collab.jpg" alt="SZA Collaboration" loading="lazy">
+            <span class="badge">New</span>
+            <h3>Collaboration News</h3>
+            <p>SZA announces a new collaboration with a top artist.<br><small>Jul 25, 2025</small></p>
+            <a href="gallery.html" class="btn btn-card">Read More</a>
+          </div>
+          <div class="card carousel-card" data-category="Release" data-date="2025-07-01">
+            <img src="images/sza_release.jpg" alt="SZA Release" loading="lazy">
+            <h3>Single Release</h3>
+            <p>Listen to SZA's latest single now available on all platforms.<br><small>Jul 1, 2025</small></p>
+            <a href="gallery.html" class="btn btn-card">Read More</a>
+          </div>
+          <!-- Additional Updates -->
+          <div class="card carousel-card" data-category="Tour" data-date="2025-06-15">
+            <img src="images/sza_tour.jpg" alt="SZA Tour" loading="lazy">
+            <h3>World Tour Announced</h3>
+            <p>SZA reveals dates for her upcoming world tour.<br><small>Jun 15, 2025</small></p>
+            <a href="gallery.html" class="btn btn-card">See Tour Dates</a>
+          </div>
+          <div class="card carousel-card" data-category="Charity" data-date="2025-05-20">
+            <img src="images/sza_charity.jpg" alt="SZA Charity" loading="lazy">
+            <h3>Charity Event</h3>
+            <p>SZA hosts a charity concert for youth empowerment.<br><small>May 20, 2025</small></p>
+            <a href="gallery.html" class="btn btn-card">Learn More</a>
+          </div>
+          <div class="card carousel-card" data-category="Collab" data-date="2025-04-10">
+            <img src="images/sza_collab2.jpg" alt="SZA Collab 2" loading="lazy">
+            <h3>Special Collaboration</h3>
+            <p>SZA teams up with another R&B star for a new single.<br><small>Apr 10, 2025</small></p>
+            <a href="gallery.html" class="btn btn-card">Listen Now</a>
+          </div>
+          <div class="card carousel-card" data-category="Award" data-date="2025-03-05">
+            <img src="images/sza_award2.jpg" alt="SZA Award 2" loading="lazy">
+            <h3>International Award</h3>
+            <p>SZA wins a prestigious international music award.<br><small>Mar 5, 2025</small></p>
+            <a href="about.html" class="btn btn-card">Read More</a>
+          </div>
+        </div>
+        <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+      </div>
+      <div class="carousel-pagination">
+        <button class="carousel-view-more" style="background: rgba(255,255,255,0.18); color: #1abc9c; border: none; border-radius: 22px; padding: 0.7em 2em; font-weight: 600; box-shadow: 0 2px 8px rgba(44,62,80,0.10); backdrop-filter: blur(8px); transition: background 0.3s, color 0.3s;">View More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-content-wrapper">
+        <div class="about-image-card">
+          <img src="images/sza_about_collage.jpg" alt="SZA Collage" style="width:100%;max-width:350px;aspect-ratio:345/613;object-fit:cover;box-shadow:0 8px 32px rgba(44,62,80,0.18);border-radius:22px;">
+          <div class="about-image-caption">
+            <h3>SZA Album Collage</h3>
+            <p>A visual journey through SZA's iconic albums and creative moments.</p>
+          </div>
+        </div>
+        <div class="about-text-card" style="display: flex; flex-direction: column; align-items: center;">
+          <h2>About This Website</h2>
+          <p>This fan website is a celebration of SZA's artistry, music, and influence. Created as a school project, it aims to connect fans and share the inspiration found in SZA's work.</p>
+          <h3>Why SZA?</h3>
+          <p>SZA's music blends soulful vocals, poetic lyrics, and unique style. Her albums, including "CTRL" and "SOS," have inspired millions and continue to shape the sound of modern R&B.</p>
+          <h3>Project Purpose</h3>
+          <p>This site was built to showcase web design skills and pay tribute to an artist who motivates creativity and authenticity. Explore the gallery, share feedback, and join the fan community!</p>
+          <a href="gallery.html" class="btn btn-hero" style="margin: 24px auto 0; display: block;">Explore Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div>
+        <h2 style="text-align:center;">Join the Fan Community</h2>
+        <p style="text-align:center;">Share your thoughts and feedback to help us improve this fan website.</p>
+        <a href="feedback.html" class="btn btn-hero" style="display:block;margin:0 auto;text-align:center;">Give Feedback</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 SZA Fan Website | Created for educational purposes</p>
+      <p>Unofficial fan website dedicated to SZA</p>
+    </div>
+  </footer>
+
+  <!-- JS for Hamburger Menu -->
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+  </script>
+
+  <!-- Carousel JS -->
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const cards = Array.from(document.querySelectorAll('.carousel-card'));
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const viewMoreBtn = document.querySelector('.carousel-view-more');
+    let currentIndex = 0;
+    let visibleCards = 1;
+    function updateVisibleCards() {
+      if(window.innerWidth > 900) visibleCards = 2;
+      else if(window.innerWidth > 600) visibleCards = 1;
+      else visibleCards = 1;
+    }
+    function updateCarousel() {
+      updateVisibleCards();
+      track.style.transform = `translateX(-${currentIndex * (100/visibleCards)}%)`;
+      cards.forEach((card, i) => {
+        card.style.opacity = (i >= currentIndex && i < currentIndex + visibleCards) ? 1 : 0.5;
+        card.style.transition = 'opacity 0.5s';
+        card.style.pointerEvents = (i >= currentIndex && i < currentIndex + visibleCards) ? 'auto' : 'none';
+      });
+    }
+    nextBtn.addEventListener('click', () => {
+      if(currentIndex < cards.length - visibleCards) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+    prevBtn.addEventListener('click', () => {
+      if(currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+    viewMoreBtn.addEventListener('click', () => {
+      // Instantly update visibleCards and carousel
+      if (visibleCards < cards.length) {
+        visibleCards = cards.length;
+        currentIndex = 0;
+        updateCarousel();
+        viewMoreBtn.textContent = 'Show Less';
+        // Force reflow for instant feedback
+        track.offsetHeight;
+      } else {
+        updateVisibleCards(); // recalculate based on window size
+        currentIndex = 0;
+        updateCarousel();
+        viewMoreBtn.textContent = 'View More';
+        track.offsetHeight;
+      }
+    });
+    window.addEventListener('resize', () => {
+      updateVisibleCards();
+      updateCarousel();
+    });
+    updateCarousel();
+  </script>
+
+</body>
+</html>

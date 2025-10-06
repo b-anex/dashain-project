@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - SZA Fan Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+  <style>
+    /* Justify-align text globally */
+    body, h1, h2, h3, h4, h5, h6, p, a, li, .btn, .about-text-card, .about-image-caption, .carousel-card {
+      text-align: justify;
+      font-family: 'Caveat Brush', cursive;
+    }
+    .hero-top-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(44,62,80,0.7) 80%, rgba(44,62,80,0.0));
+      box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .hero-nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(44,62,80,0.95);
+        position: absolute;
+        top: 70px;
+        right: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+        padding: 1rem 2rem;
+      }
+      .hero-nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      margin-top: 32px;
+      transition: all 0.4s;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+      background: linear-gradient(135deg, rgba(44,62,80,0.08) 60%, rgba(26,188,156,0.08));
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      transition: filter 0.3s;
+    }
+    .gallery-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(44,62,80,0.85);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+    }
+    .gallery-modal-content {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(44,62,80,0.18);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 80vh;
+    }
+    .gallery-modal-content img {
+      max-width: 60vw;
+      max-height: 60vh;
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+    .gallery-modal-desc {
+      color: #2c3e50;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .gallery-modal-btn {
+      background: rgba(255,255,255,0.18);
+      color: #1abc9c;
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      margin: 0 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s, color 0.3s;
+    }
+    .gallery-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: none;
+      color: #fff;
+      border: none;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+    .gallery-view-more {
+      background: linear-gradient(90deg, #1abc9c 0%, #2c3e50 100%);
+      color: #fff;
+      border: none;
+      border-radius: 22px;
+      padding: 0.7em 2em;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      margin: 32px auto 0;
+      display: block;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      z-index: 1;
+    }
+    .gallery-view-more:hover, .gallery-view-more:focus {
+      background: linear-gradient(90deg, #2c3e50 0%, #1abc9c 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(44,62,80,0.18);
+    }
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+      }
+      .gallery-item img {
+        height: 140px;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .gallery-item img {
+        height: 100px;
+      }
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 2px 8px rgba(44,62,80,0.12));
+      transition: transform 0.2s;
+    }
+    .social-icons a:hover img, .social-icons a:focus img {
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section with Blended Navigation & Logo (Top of Page) -->
+  <header class="hero blended-hero">
+    <div class="hero-top-bar">
+      <a href="index.html" class="logo-link">
+        <img src="images/sza_logo.png" alt="SZA Logo" class="logo-img-large" />
+      </a>
+      <nav class="inline-nav hero-nav">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-social-icons" style="display:flex;gap:16px;align-items:center;margin-left:24px;">
+          <a href="https://instagram.com/sza" target="_blank" title="Instagram" rel="noopener">
+            <img src="images/instalogo.png" alt="Instagram" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+          </a>
+          <a href="https://facebook.com/sza" target="_blank" title="Facebook" rel="noopener">
+            <img src="images/fblogo.png" alt="Facebook" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+          </a>
+          <a href="https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP" target="_blank" title="Spotify" rel="noopener">
+            <img src="images/spotifylogo.png" alt="Spotify" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;transition:transform 0.2s;" />
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-text">
+      <h1 style="color: #fff; text-align: center;">Gallery</h1>
+      <p style="color: #fff; text-align: center;">Check out some photos and highlights of SZA</p>
+    </div>
+  </header>
+
+  <!-- Gallery Content -->
+  <section class="section alt-bg" id="gallery">
+    <div class="container">
+      <h2>Photo Collection</h2>
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item" onclick="expandGalleryItem(0)">
+          <img src="images/1.jpg" alt="SZA Gallery 1" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="expandGalleryItem(1)">
+          <img src="images/2.jpg" alt="SZA Gallery 2" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="expandGalleryItem(2)">
+          <img src="images/3.jpg" alt="SZA Gallery 3" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="expandGalleryItem(3)">
+          <img src="images/4.jpg" alt="SZA Gallery 4" loading="lazy">
+        </div>
+        <div class="gallery-item" onclick="expandGalleryItem(4)">
+          <img src="images/5.jpg" alt="SZA Gallery 5" loading="lazy">
+        </div>
+      </div>
+      <div class="gallery-pagination">
+        <button class="gallery-view-more" id="gallery-view-more" tabindex="0">View More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 SZA Fan Website | Created for educational purposes</p>
+    </div>
+  </footer>
+
+  <!-- Gallery Modal -->
+  <div id="gallery-modal" class="gallery-modal" style="display:none;">
+    <button class="gallery-modal-btn prev" onclick="galleryPrev()">&#10094;</button>
+    <div class="gallery-modal-content">
+      <img id="gallery-modal-img" src="" alt="Expanded Gallery" />
+    </div>
+    <button class="gallery-modal-btn next" onclick="galleryNext()">&#10095;</button>
+    <button class="gallery-modal-close" onclick="closeGalleryModal()">&times;</button>
+  </div>
+
+  <!-- Hamburger Menu JS -->
+  <script>
+const toggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+if (toggle && menu) {
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+}
+// Gallery logic (single, clean version)
+const galleryImages = [
+  'images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg', 'images/5.jpg', 'images/6.jpg', 'images/7.jpg', 'images/8.jpg', 'images/9.jpg', 'images/10.jpg', 'images/11.jpg', 'images/12.jpg', 'images/13.jpg'
+];
+let currentGalleryIndex = 0;
+const galleryViewMoreBtn = document.getElementById('gallery-view-more');
+const galleryGrid = document.getElementById('gallery-grid');
+let galleryExpanded = false;
+function expandGalleryItem(idx) {
+  currentGalleryIndex = idx;
+  document.getElementById('gallery-modal-img').src = galleryImages[idx];
+  document.getElementById('gallery-modal').style.display = 'flex';
+}
+function closeGalleryModal() {
+  document.getElementById('gallery-modal').style.display = 'none';
+}
+function galleryPrev() {
+  currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  expandGalleryItem(currentGalleryIndex);
+}
+function galleryNext() {
+  currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+  expandGalleryItem(currentGalleryIndex);
+}
+function renderGalleryImages(count) {
+  galleryGrid.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.onclick = (() => expandGalleryItem(i));
+    const img = document.createElement('img');
+    img.src = galleryImages[i];
+    img.alt = `SZA Gallery ${i+1}`;
+    img.loading = 'lazy';
+    item.appendChild(img);
+    galleryGrid.appendChild(item);
+  }
+}
+galleryViewMoreBtn.addEventListener('click', function() {
+  if (!galleryExpanded) {
+    renderGalleryImages(galleryImages.length);
+    this.textContent = 'Show Less';
+    galleryExpanded = true;
+  } else {
+    renderGalleryImages(5);
+    this.textContent = 'View More';
+    galleryExpanded = false;
+  }
+  // Force reflow for instant feedback
+  galleryGrid.offsetHeight;
+});
+// Initial render
+renderGalleryImages(5);
+  </script>
+
+</body>
+</html>
